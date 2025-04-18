@@ -1,6 +1,6 @@
 # 📡 API Uptime Monitor with n8n
 
-This project is a simple and practical use case to learn and showcase automation using [n8n](https://n8n.io/).</br>
+This project is a simple and practical use case to learn and showcase automation using [n8n](https://n8n.io/).  
 It sets up a workflow to monitor the availability of a public API and prepares it for future improvements like logging and notifications.
 
 ## 🎯 Goal
@@ -39,6 +39,28 @@ Login:
 -   **Username**: `admin`
 -   **Password**: `admin123`
 
+---
+
+## ▶️ `start.sh` Script
+
+This project includes a `start.sh` file to simplify launching the application.
+
+### 🔧 What it does:
+
+- Automatically sets proper permissions for the `./data` volume
+- Starts the Docker containers with `docker-compose`
+
+### 📝 Usage:
+
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+This script is especially helpful for Linux users, ensuring everything works out-of-the-box without manual `chown` commands.
+
+---
+
 ## 🐳 Docker Configuration
 
 Docker Compose sets up n8n with:
@@ -74,9 +96,11 @@ This gives the internal container user (`node`, UID 1000) permission to write to
 
 ```
 n8n-uptime-monitor/
-├── docker-compose.yml
+├── docker-compose.yaml
+├── start.sh
 ├── README.md
-└── data/                    ← Workflow data (volume)
+├── .gitattributes
+├── data/                    ← Workflow data (volume)
 └── api-uptime-monitor.json  ← n8n workflow
 ```
 
